@@ -1,15 +1,35 @@
 # YOUTUBE VIDEO TO MP3 CONVERTER
 
-###### REQUIRES ffmpeg and youtube-dl
+##### REQUIRES ffmpeg, youtube-dl and vim
+
+### Installing requirements:
+###### ARCH LINUX:
+    sudo pacman -S ffmpeg
+    sudo pacman -S youtube-dl
+    sudo pacman -S vim
 
 ### How to use:
- - open linux terminal and go to the directory and run this command
-##### run:-
+ **1.** Open your terminal run this commands
+###### RUN:
+	cd ~/mp3
+	mv ~/mp3/getMusic.sh ~/.local/bin
+	chmod +x ~/.local/bin/getMusic.sh
+	
+ **2.** Now, when you want to download any music open the terminal and run this command  
+###### RUN:
+    getMusic.sh
+    
+ **3**. Now, this will prompt you a vim file, copy the links of the youtube videos which you want to download as mp3.
+ **4.** it will check if the video from the link has been already downloaded or not, if not downloaded then it will download the video convert it to mp3 format delete the video and put the *.mp3 into your ~/Music directory. 
+## Warning:
 
-     sudo chmod +x mp3.sh
-     sudo cp mp3.sh /usr/local/bin
+ - This a **personal utility**, please use with caution.
+ - Do not remove any .txt file from the **~/mp3** directory.
+  
 
-- now copy the links of the videos that you want to download and covert into .mp3 format, and paste into the links.txt file.
-- now run the download.py file, you can run it by opening your termianl and running this command
-##### run:-
-    python3 download.py
+ 
+
+
+
+
+
