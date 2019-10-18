@@ -1,18 +1,34 @@
 def readAndDownload():
     import os
-    f = open("download_links.txt", "r")
+    f = open("links.txt", "r")
     for x in f:
-        cmd = "~/mp3/mp3.sh "+x
-        os.system(cmd)
-    
+        if checkIfDownloaded(x) != -1:
+            cmd = "~/mp3/mp3.sh "+x
+            os.system(cmd)
+            d = open("download_history.txt", 'a')
+            d.write(x)
+            d.close()
+        else:
+            print("the file is already downloaded!")
+        
+def checkIfDownloaded(link):
+    download_history = open("download_history.txt", 'r')
+    for d in download_history:
+        if d == link:
+            download_history.close()
+            return -1
+    download_history.close()
+    return 0
+
+
 def clearFile():
-    fin = open('download_links.txt', "r")
-    data = fin.read()
-    fin.close()
-    fout = open('download_history.txt', "a")
-    fout.write(data)
-    fout.close()            
-    open('download_links.txt', 'w').close()
     open('links.txt', 'w').close()
-readAndDownload()
-clearFile()
+
+def main():
+    readAndDownload()
+    clearFile()
+
+if __name__ == "__main__":
+    main()
+
+
